@@ -1,0 +1,14 @@
+# Build context for the Dockerfile: only requirements.txt, app/ and apps/ are copied into the
+# image, so everything else is excluded to keep the context small and to keep host artefacts
+# (bytecode for a different Python, session traces, the local .env) out of the build.
+.env
+.git
+.venv
+venv
+traces
+__pycache__
+*.pyc
+.pytest_cache
+tests
+scripts
+*.md
