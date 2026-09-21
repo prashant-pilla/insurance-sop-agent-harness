@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northwind Insurance — Claims Support (SOP Agent Demo)</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <h1>Northwind Insurance — Claims Support <span class="muted">(SOP Agent Demo)</span></h1>
+      <div id="health" class="health muted">connecting…</div>
+    </div>
+    <div class="topbar-actions">
+      <label class="consent-scenario" title="Applies to the next new session">
+        <span class="consent-scenario-label">Consent scenario</span>
+        <select id="consent-scenario" class="consent-select" aria-label="Consent scenario (applies to the next new session)" title="Applies to the next new session">
+          <option value="default">default</option>
+          <option value="timeout">timeout</option>
+        </select>
+      </label>
+      <button id="new-session" class="btn btn-secondary" type="button">New session</button>
+    </div>
+  </header>
+
+  <div id="error-banner" class="error-banner" hidden>
+    <span id="error-text"></span>
+    <button id="error-dismiss" class="error-dismiss" type="button" aria-label="Dismiss">&times;</button>
+  </div>
+
+  <main class="layout">
+    <section class="chat" aria-label="Chat">
+      <div id="messages" class="messages" aria-live="polite"></div>
+      <div id="typing" class="typing" hidden>
+        <span class="bubble agent typing-bubble"><span></span><span></span><span></span></span>
+      </div>
+      <form id="composer" class="composer">
+        <textarea id="input" rows="2" placeholder="Type a message… (Enter to send, Shift+Enter for a new line)"></textarea>
+        <button id="send" class="btn btn-primary" type="submit">Send</button>
+      </form>
+      <div class="scenarios">
+        <span class="scenarios-label">Scenarios:</span>
+        <div id="presets" class="preset-row"></div>
+      </div>
+    </section>
+
+    <aside class="panel" aria-label="SOP State">
+      <h2>SOP State</h2>
+
+      <section class="card">
+        <h3>Phase</h3>
+        <ol id="stepper" class="stepper"></ol>
+        <div id="handoff-badge" class="badge badge-handoff" hidden>HUMAN_HANDOFF</div>
+      </section>
+
+      <section class="card">
+        <h3>Identity verification</h3>
+        <ul id="factors" class="factors"></ul>
+        <div id="verified-line" class="verified-line"></div>
+        <div id="caller-line" class="caller-line" hidden></div>
+        <div id="attempts" class="muted small"></div>
+      </section>
+
+      <section class="card">
+        <h3>Memory</h3>
+        <div class="kv-label">Intent hints</div>
+        <div id="intent-hints" class="chips"></div>
+        <div class="kv-label">Case hints</div>
+        <dl id="case-hints" class="kv"></dl>
+        <div class="kv-label">Notes</div>
+        <ul id="notes" class="notes"></ul>
+      </section>
+
+      <section class="card">
+        <h3>Case</h3>
+        <dl id="case" class="kv"></dl>
+      </section>
+
+      <section class="card">
+        <h3>Signals</h3>
+        <dl id="signals" class="kv"></dl>
+      </section>
+
+      <section class="card">
+        <h3>Email outbox</h3>
+        <div id="outbox" class="outbox"></div>
+      </section>
+
+      <section id="handoff-card" class="card card-handoff" hidden>
+        <h3>Handoff note</h3>
+        <p id="handoff-note" class="handoff-note"></p>
+      </section>
+
+      <details id="debug-details" class="card debug">
+        <summary>Turn debug</summary>
+        <div id="debug"></div>
+      </details>
+    </aside>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
