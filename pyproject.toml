@@ -1,0 +1,30 @@
+[project]
+name = "insurance-sop-agent-harness"
+version = "0.1.0"
+description = "Conversational insurance-claims agent where a deterministic controller enforces the SOP and the LLM only extracts and phrases"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Prashant Pilla" }]
+# requirements.txt remains the install path (`pip install -r requirements.txt`); this list mirrors it.
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "httpx>=0.27",
+    "pydantic>=2.6",
+    "pytest>=8.0",
+    "python-dotenv>=1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+# Prompt text and test transcripts are deliberately kept on one line.
+ignore = ["E501"]
