@@ -7,9 +7,9 @@ A conversational insurance-claims agent where a deterministic controller enforce
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-308%20passing-brightgreen.svg)](#tests)
 
-![Demo](docs/media/demo.png)
+![Demo](docs/media/demo.gif)
 
-The demo caller's opening message carries three identity factors and a claim description, so one turn runs `VERIFY_ID`, `RESOLVE_INTENT` and `PROCESS_CASE` and the reply already explains the denial from the record.
+The demo caller's opening message carries three identity factors and a claim description, so one turn runs `VERIFY_ID`, `RESOLVE_INTENT` and `PROCESS_CASE` and the reply already explains the denial from the record; the follow-ups walk the SOP State panel through to `CLOSED` and an emailed summary.
 
 ## Why
 
